@@ -1,0 +1,16 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+a{
+  color: #000;
+}
+
+img{
+  max-width: 100%;
+}
