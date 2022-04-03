@@ -44,6 +44,7 @@ const useUser = () => {
     todos,
     token,
     setUser,
+    setTodos,
     isLogged: Boolean(user),
     isLoginLoading: state.loading,
     hasLoginError: state.error,

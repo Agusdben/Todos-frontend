@@ -9,9 +9,7 @@ export const Todos = () => {
       {todos &&
         <section>
           {todos.map(todo =>
-            <article key={todo.id}>
-              <Todo todo={todo} />
-            </article>
+            <Todo key={todo.id} todo={todo} />
           )}
         </section>}
     </>
