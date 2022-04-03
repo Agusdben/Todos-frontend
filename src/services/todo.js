@@ -7,6 +7,7 @@ const getTodosXuser = async (userID, token) => {
       Authorization: `Bearer ${token}`
     }
   }
+  console.log({ config })
   const { data } = await axios.get(`${API_URL}/todos/${userID}`, config)
   return data
 }

@@ -10,7 +10,7 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     const getTodos = async () => {
-      const todos = await todosServices.getTodosXuser(user._id, user.token)
+      const todos = await todosServices.getTodosXuser(user.id, user.token)
       window.localStorage.setItem('storedTodos', JSON.stringify(todos))
       setTodos(todos)
     }

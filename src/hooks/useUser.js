@@ -33,6 +33,7 @@ const useUser = () => {
 
   const logout = useCallback(() => {
     window.localStorage.removeItem('storedUser')
+    window.localStorage.removeItem('storedTodos')
     setUser(null)
     setTodos(null)
     setToken(null)
