@@ -1,0 +1,57 @@
+.add-todo{
+  height: var(--addTodo-height);
+  display: grid;
+  place-content: center;
+}
+
+.add-todo__add{
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  border: none;
+  font-size: 2.5rem;
+}
+
+.add-todo__modal{
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  display: none;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  place-content: center;
+}
+
+.add-todo__modal--open{
+  display: grid;
+}
+
+.add-todo__form{
+  width: 90vw;
+  position: relative;
+  display: grid;
+  gap: 2em;
+  padding: 1.5rem;
+  background-color: #fff;
+}
+
+.add-todo__input{
+  line-height: 2rem;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #f00;
+}
+
+.add-todo__close{
+  width: 30px;
+  height: 30px;
+  border: none;
+  position: absolute;
+  display: grid;
+  place-content: center;
+  top: -15px;
+  right: -15px;
+  border-radius: 50%;
+}

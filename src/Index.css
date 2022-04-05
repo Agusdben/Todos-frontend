@@ -1,21 +1,30 @@
-*{
+* {
   box-sizing: border-box;
 }
 
-:root{
+:root {
+  --header-height: 70px;
+  --addTodo-height: 100px;
   --main-color: #DADFF7 #5A7D7C #A0C1D1 #B5B2C2;
 }
-body{
+
+body {
   font-family: sans-serif;
   overflow-x: hidden;
-  background-color: #232C33;
-  color: #e3e3e3;
+  color: #000;
+  background: rgb(255,0,0);
+  background: linear-gradient(0, rgba(255,0,0,1) 0%, rgba(170,0,0,1) 50%, rgba(85,0,0,1) 100%);
+  font-size: calc(18px + 1vmin);
 }
 
-a{
+a {
   color: #000;
 }
 
-img{
+img {
   max-width: 100%;
+}
+
+input:focus{
+  outline: none;
 }

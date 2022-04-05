@@ -16,9 +16,8 @@ export const App = () => {
     <UserContextProvider>
 
       <Router>
-        <div id='app'>
+        <div id='app' style={{ minHeight: `${window.innerHeight}px` }}>
           <Header />
-          <AddTodo />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
@@ -28,6 +27,7 @@ export const App = () => {
               element={<Navigate to='/' replace />}
             />
           </Routes>
+          <AddTodo />
 
         </div>
       </Router>

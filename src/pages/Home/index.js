@@ -4,14 +4,13 @@ import { Todos } from '../../components/Todos'
 import useUser from '../../hooks/useUser'
 
 export const Home = () => {
-  const { isLogged, logout } = useUser()
+  const { isLogged } = useUser()
 
   return (
     <>
       {isLogged &&
         <>
           <Todos />
-          <button onClick={logout}>logout</button>
         </>}
       {!isLogged && <Navigate to='/login' replace />}
     </>

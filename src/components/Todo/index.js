@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 import useUser from '../../hooks/useUser'
 import todosServices from '../../services/todo'
+
+import './Todo.css'
 
 export const Todo = ({ todo }) => {
   const { todos, setTodos, token } = useUser()
@@ -41,14 +43,15 @@ export const Todo = ({ todo }) => {
     setIsDeleting(!isDeleting)
   }
   return (
-    <article>
-      <input type='checkbox' checked={checked} onChange={handleCheck} />
-      <p>{todo.description}</p>
+    <article className={checked ? 'todo todo--checked' : 'todo'}>
       <div className='todo__controlls'>
-        <button onClick={handleIsDelete}><FontAwesomeIcon icon={faTrashCan} /></button>
-        <button>E</button>
+        <button className='todo__button' onClick={handleIsDelete}><FontAwesomeIcon icon={faTrash} /></button>
       </div>
-      <dialog open={isDeleting}>
+      <p className='todo__description'>{todo.description}</p>
+      <form className='todo__form'>
+        <input className='todo__done' type='checkbox' checked={checked} onChange={handleCheck} />
+      </form>
+      <dialog className='todo__modal' open={isDeleting}>
         <p>Delete {todo.description}?</p>
         <div>
           <button onClick={handleIsDelete}>No</button>
