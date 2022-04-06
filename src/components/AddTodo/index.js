@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faClose } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import useUser from '../../hooks/useUser'
 import todosServices from '../../services/todo'
 
 import './AddTodo.css'
+import { Modal } from '../Modal'
 
 export const AddTodo = () => {
   const [todo, setTodo] = useState('')
@@ -44,17 +45,17 @@ export const AddTodo = () => {
   return (
     <section className='add-todo'>
       <button className='add-todo__add' onClick={handleAddingTodo}><FontAwesomeIcon icon={faPlus} /></button>
-      <div className={addingTodo ? 'add-todo__modal add-todo__modal--open' : 'add-todo__modal'} style={{ height: `${window.innerHeight}px` }}>
-        <form className='add-todo__form' onSubmit={handleSubmitTodo}>
-          <input className='add-todo__input' type='text' value={todo} onChange={handleTodo} placeholder='Something to do...' />
-          <div className='add-todo__group'>
-            <label htmlFor='important'>Important</label>
-            <input type='checkbox' checked={important} onChange={handleCheck} id='important' />
-          </div>
-          <button className='add-todo__button add-todo__close' onClick={handleAddingTodo}><FontAwesomeIcon icon={faClose} /></button>
-          <button className='add-todo__button'>ADD!</button>
-        </form>
-      </div>
+      {addingTodo &&
+        <Modal modalClose={setAddingTodo}>
+          <form className='add-todo__form' onSubmit={handleSubmitTodo}>
+            <input className='add-todo__input' type='text' value={todo} onChange={handleTodo} placeholder='Something to do...' />
+            <div className='add-todo__group'>
+              <label htmlFor='important'>Important</label>
+              <input type='checkbox' checked={important} onChange={handleCheck} id='important' />
+            </div>
+            <button className='add-todo__button'>ADD!</button>
+          </form>
+        </Modal>}
     </section>
   )
 }

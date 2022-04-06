@@ -1,13 +1,14 @@
 .todo {
+  --controlls-width: 50px;
   width: 90vw;
   min-height: 70px;
   margin: auto;
   margin-bottom: 1em;
   border-radius: 5px;
-  overflow: hidden;
   display: flex;
   justify-content: space-between;
   background-color: #fff;
+  overflow: hidden;
 }
 
 .todo--checked>.todo__description {
@@ -74,10 +75,12 @@
 }
 
 .todo__controlls{
+  position: relative;
   display: grid;
   place-content: center;
   height: inherit;
-  width: 50px;
+  width: var(--controlls-width);
+  background-color: #e3e3e3;
 }
 
 .todo__form{

@@ -12,7 +12,7 @@ export const Todos = () => {
           className='todos'
           style={
             {
-              height: `calc(${window.innerHeight}px - var(--addTodo-height) - var(--header-height))`
+              minHeight: `calc(${window.innerHeight}px - var(--addTodo-height) - var(--header-height))`
             }
           }
         >
