@@ -4,8 +4,10 @@ import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import useUser from '../../hooks/useUser'
 import todosServices from '../../services/todo'
 
-import './MoreOptions.css'
 import { Modal } from '../Modal'
+import { Delete } from '../Delete'
+
+import './MoreOptions.css'
 
 export const MoreOptions = ({ todo }) => {
   const { todos, setTodos, token } = useUser()
@@ -23,19 +25,17 @@ export const MoreOptions = ({ todo }) => {
     } catch (e) { console.log(e) }
   }
   return (
-    <>
-      <div className='more-options'>
-        <button className='more-options__button' onClick={handleIsDelete}><FontAwesomeIcon icon={faTrash} /></button>
-        <button className='more-options__button'><FontAwesomeIcon icon={faPenToSquare} /></button>
-        {isDeleting &&
-          <Modal modalClose={setIsDeleting}>
-            <p>Delete {todo.description}?</p>
-            <div>
-              <button onClick={handleIsDelete}>No</button>
-              <button onClick={handleDelete}>Yes</button>
-            </div>
-          </Modal>}
-      </div>
-    </>
+    <div className='more-options'>
+      <button className='more-options__button' onClick={handleIsDelete}><FontAwesomeIcon icon={faTrash} /></button>
+      <button className='more-options__button'><FontAwesomeIcon icon={faPenToSquare} /></button>
+      {isDeleting &&
+        <Modal modalClose={setIsDeleting}>
+          <Delete
+            todo={todo}
+            handleConfirm={handleDelete}
+            handleCancel={handleIsDelete}
+          />
+        </Modal>}
+    </div>
   )
 }

@@ -1,0 +1,50 @@
+.delete{
+  background-color: #fff;
+  width: 90vw;
+}
+
+.delete__header{
+  text-align: center;
+  padding: 1em;
+}
+
+.delete__icon{
+  margin: auto;
+  display: grid;
+  place-content: center;
+  color: #f00;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.delete__title{
+  margin: 0;
+  padding: 1em;
+  text-align: center;
+}
+
+.delete__description{
+  text-align: center;
+  opacity: .9;
+  margin: 0;
+  padding: 0 .5em;
+  overflow-wrap: break-word;
+
+}
+
+.delete__footer{
+  padding: 1em 0;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.delete__footer button{
+  border: none;
+  border-radius: 5px;
+  padding: .5em;
+}
+
+.delete__delete{
+  background-color: #F00;
+}
