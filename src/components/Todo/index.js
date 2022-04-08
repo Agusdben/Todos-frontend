@@ -9,26 +9,28 @@ import './Todo.css'
 
 export const Todo = ({ todo }) => {
   const { todos, setTodos, token } = useUser()
+  const [thisTodo, setThisTodo] = useState(todo)
   const [checked, setChecked] = useState(todo.done)
   const [moreOptions, setMoreOptions] = useState(false)
 
   const handleCheck = async () => {
     try {
       const updatedTodo = {
-        ...todo,
+        ...thisTodo,
         done: !checked,
-        todoID: todo.id
+        todoID: thisTodo.id
       }
 
       setChecked(!checked)
       await todosServices.updateTodo(updatedTodo, token)
 
       // find todo updated and put the updatedTodo, keep the order
-      const updatedTodoIndex = todos.indexOf(todo)
+      const updatedTodoIndex = todos.indexOf(thisTodo)
       todos[updatedTodoIndex] = updatedTodo
 
       window.localStorage.setItem('storedTodos', JSON.stringify(todos))
       setTodos(todos)
+      setThisTodo(updatedTodo)
     } catch (e) { console.log(e); setChecked(!checked) }
   }
 
@@ -41,10 +43,10 @@ export const Todo = ({ todo }) => {
       <form className='todo__form'>
         <input className='todo__done' type='checkbox' checked={checked} onChange={handleCheck} />
       </form>
-      <p className='todo__description'>{todo.description}</p>
+      <p className='todo__description'>{thisTodo.description}</p>
       <div className='todo__controlls'>
         <button onClick={handleMoreOptions}><FontAwesomeIcon icon={!moreOptions ? faEllipsisVertical : faClose} /></button>
-        {moreOptions && <MoreOptions todo={todo} />}
+        {moreOptions && <MoreOptions todo={thisTodo} setThisTodo={setThisTodo} />}
       </div>
     </article>
   )

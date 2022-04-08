@@ -22,4 +22,20 @@
 .modal__container{
   position: relative;
   z-index: 999999;
+  background-color: #fff;
+  width: 90vw;
+}
+
+.modal__header{
+  text-align: center;
+  padding: 1em;
+}
+
+.modal__icon{
+  margin: auto;
+  display: grid;
+  place-content: center;
+  color: var(--secondary-color);
+  font-size: 2rem;
+  border-radius: 50%;
 }

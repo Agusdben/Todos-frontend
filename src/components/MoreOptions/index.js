@@ -5,16 +5,24 @@ import useUser from '../../hooks/useUser'
 import todosServices from '../../services/todo'
 
 import { Modal } from '../Modal'
-import { Delete } from '../Delete'
+import { TodoDelete } from '../TodoDelete'
+import { TodoEdit } from '../TodoEdit'
 
 import './MoreOptions.css'
 
-export const MoreOptions = ({ todo }) => {
+export const MoreOptions = ({ todo, setThisTodo }) => {
   const { todos, setTodos, token } = useUser()
   const [isDeleting, setIsDeleting] = useState(false)
-  const handleIsDelete = () => {
+  const [isEditing, setIsEditing] = useState(false)
+
+  const handleIsDeleting = () => {
     setIsDeleting(!isDeleting)
   }
+
+  const handleIsEditing = () => {
+    setIsEditing(!isEditing)
+  }
+
   const handleDelete = async () => {
     try {
       await todosServices.deleteTodo(todo.id, token)
@@ -24,16 +32,25 @@ export const MoreOptions = ({ todo }) => {
       window.localStorage.setItem('storedTodos', JSON.stringify(newTodos))
     } catch (e) { console.log(e) }
   }
+
   return (
     <div className='more-options'>
-      <button className='more-options__button' onClick={handleIsDelete}><FontAwesomeIcon icon={faTrash} /></button>
-      <button className='more-options__button'><FontAwesomeIcon icon={faPenToSquare} /></button>
+      <button className='more-options__button' onClick={handleIsDeleting}><FontAwesomeIcon icon={faTrash} /></button>
+      <button className='more-options__button' onClick={handleIsEditing}><FontAwesomeIcon icon={faPenToSquare} /></button>
       {isDeleting &&
-        <Modal modalClose={setIsDeleting}>
-          <Delete
+        <Modal modalClose={setIsDeleting} icon={faTrash}>
+          <TodoDelete
             todo={todo}
             handleConfirm={handleDelete}
-            handleCancel={handleIsDelete}
+            handleCancel={handleIsDeleting}
+          />
+        </Modal>}
+      {isEditing &&
+        <Modal modalClose={setIsEditing} icon={faPenToSquare}>
+          <TodoEdit
+            todo={todo}
+            handleCancel={handleIsEditing}
+            setThisTodo={setThisTodo}
           />
         </Modal>}
     </div>

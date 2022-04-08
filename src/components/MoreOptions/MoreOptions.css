@@ -12,6 +12,8 @@
 .more-options__button {
   width: 60px;
   border: none;
+  background-color:#fff;
+  color: var(--secondary-color);
 }
 
 

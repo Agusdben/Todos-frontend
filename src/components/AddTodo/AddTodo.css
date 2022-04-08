@@ -1,12 +1,12 @@
 .add-todo{
   height: var(--addTodo-height);
+  width: 100px;
+  margin: auto;
   display: grid;
   place-content: center;
   position: sticky;
   z-index: 9999;
   bottom: 0;
-  background-color: #000;
-  width: 100vw;
 }
 
 .add-todo__add{
@@ -15,20 +15,5 @@
   height: 75px;
   border: none;
   font-size: 2.5rem;
-}
-
-.add-todo__form{
-  width: 90vw;
-  position: relative;
-  display: grid;
-  gap: 2em;
-  padding: 1.5rem;
-  background-color: #fff;
-}
-
-.add-todo__input{
-  line-height: 2rem;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #f00;
+  color: var(--secondary-color);
 }

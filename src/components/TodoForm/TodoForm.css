@@ -1,0 +1,44 @@
+.todo-form {
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.todo-form__input {
+  width: 100%;
+  padding: .5em;
+  border: none;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.form__group {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form__group input[type='checkbox'] {
+  width: 30px;
+  height: 30px;
+  accent-color: var(--secondary-color);
+}
+
+.todo-form__controlls {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin: auto;
+}
+
+.todo-form__controlls button{
+  border: none;
+  border-radius: 5px;
+  padding: .5em;
+}
+
+.todo-form__confirm{
+  color: #fff;
+  background-color: var(--secondary-color);
+}
