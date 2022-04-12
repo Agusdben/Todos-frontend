@@ -1,1 +1,1 @@
-export const API_URL = 'https://app-todos-task.herokuapp.com/'
+export const API_URL = 'https://app-todos-task.herokuapp.com/api'
