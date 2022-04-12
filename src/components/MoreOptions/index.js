@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons'
 import useUser from '../../hooks/useUser'
 import todosServices from '../../services/todo'
 
@@ -11,7 +11,7 @@ import { TodoEdit } from '../TodoEdit'
 import './MoreOptions.css'
 
 export const MoreOptions = ({ todo, setThisTodo }) => {
-  const { todos, setTodos, token } = useUser()
+  const { todos, setTodos, token, logout } = useUser()
   const [isDeleting, setIsDeleting] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
 
@@ -30,13 +30,13 @@ export const MoreOptions = ({ todo, setThisTodo }) => {
       setTodos(newTodos)
       setIsDeleting(!isDeleting)
       window.localStorage.setItem('storedTodos', JSON.stringify(newTodos))
-    } catch (e) { console.log(e) }
+    } catch (e) { logout() }
   }
 
   return (
     <div className='more-options'>
       <button className='more-options__button' onClick={handleIsDeleting}><FontAwesomeIcon icon={faTrash} /></button>
-      <button className='more-options__button' onClick={handleIsEditing}><FontAwesomeIcon icon={faPenToSquare} /></button>
+      <button className='more-options__button' onClick={handleIsEditing}><FontAwesomeIcon icon={faPen} /></button>
       {isDeleting &&
         <Modal modalClose={setIsDeleting} icon={faTrash}>
           <TodoDelete
@@ -46,7 +46,7 @@ export const MoreOptions = ({ todo, setThisTodo }) => {
           />
         </Modal>}
       {isEditing &&
-        <Modal modalClose={setIsEditing} icon={faPenToSquare}>
+        <Modal modalClose={setIsEditing} icon={faPen}>
           <TodoEdit
             todo={todo}
             handleCancel={handleIsEditing}

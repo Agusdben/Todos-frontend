@@ -27,6 +27,6 @@
 }
 
 .delete__delete{
-  background-color: var(--secondary-color);
-  color: #fff;
+  background-color: var(--primary_color);
+  color: var(--button_fontColor);
 }

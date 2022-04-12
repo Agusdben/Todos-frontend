@@ -5,16 +5,11 @@ import todosServices from '../../services/todo'
 import './TodoForm.css'
 
 export const TodoForm = ({ method, handleCancel, todo = null, setThisTodo = null }) => {
-  const { user, setTodos, todos } = useUser()
-  const [description, setDescription] = useState('')
-  const [important, setImportant] = useState(false)
+  const { user, setTodos, todos, token, logout } = useUser()
+  const [description, setDescription] = useState(todo ? todo.description : '')
 
   const handleDescription = ({ target }) => {
     setDescription(target.value)
-  }
-
-  const handleImportant = () => {
-    setImportant(!important)
   }
 
   const submitTodoForm = async (e) => {
@@ -25,10 +20,9 @@ export const TodoForm = ({ method, handleCancel, todo = null, setThisTodo = null
       if (method === 'post') {
         const newTodo = {
           description,
-          important,
           username: user.username
         }
-        const addedTodo = await todosServices.postTodo(newTodo, user.token)
+        const addedTodo = await todosServices.postTodo(newTodo, token)
         setTodos(todos.concat(addedTodo))
         window.localStorage.setItem('storedTodos', JSON.stringify(todos.concat(addedTodo)))
       }
@@ -37,10 +31,9 @@ export const TodoForm = ({ method, handleCancel, todo = null, setThisTodo = null
         const newTodo = {
           todoID: todo.id,
           description,
-          important,
           done: todo.done
         }
-        const updatedTodo = await todosServices.updateTodo(newTodo, user.token)
+        const updatedTodo = await todosServices.updateTodo(newTodo, token)
         const updatedTodoIndex = todos.indexOf(todo)
         todos[updatedTodoIndex] = updatedTodo
         window.localStorage.setItem('storedTodos', JSON.stringify(todos))
@@ -50,29 +43,25 @@ export const TodoForm = ({ method, handleCancel, todo = null, setThisTodo = null
 
       // close modal
       handleCancel()
-    } catch (e) { console.log(e) }
+    } catch (e) {
+      if (e.response.status === 401) {
+        logout()
+      }
+    }
   }
 
   return (
     <form className='todo-form' onSubmit={submitTodoForm}>
       <input
+        autoFocus
         className='todo-form__input'
         type='text' value={description}
         onChange={handleDescription}
         placeholder={todo ? todo.description : 'Buy milk...'}
       />
-      <div className='form__group'>
-        <label className='form__label' htmlFor='important'>Important</label>
-        <input
-          className='todo-form__input'
-          id='important'
-          type='checkbox' checked={important}
-          onChange={handleImportant}
-        />
-      </div>
       <div className='todo-form__controlls'>
-        <button onClick={handleCancel}>Cancel</button>
         <button className='todo-form__confirm'>Confirm</button>
+        <button onClick={handleCancel}>Cancel</button>
       </div>
     </form>
   )

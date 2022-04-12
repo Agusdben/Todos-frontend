@@ -5,9 +5,11 @@ import userServices from '../services/user'
 const useUser = () => {
   const {
     user,
+    darkMode,
     todos,
     token,
     setUser,
+    setDarkMode,
     setTodos,
     setToken
   } = useContext(userContext)
@@ -41,9 +43,11 @@ const useUser = () => {
 
   return {
     user,
+    darkMode,
     todos,
     token,
     setUser,
+    setDarkMode,
     setTodos,
     isLogged: Boolean(user),
     isLoginLoading: state.loading,

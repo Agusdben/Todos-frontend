@@ -39,8 +39,6 @@ const deleteTodo = async (todoID, token) => {
     }
   }
 
-  console.log({ todoID })
-
   const { data } = await axios.delete(`${API_URL}/todos/${todoID}`, config)
   return data
 }

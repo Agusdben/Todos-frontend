@@ -1,4 +1,6 @@
 .header {
+  user-select: none;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   position: sticky;
@@ -7,6 +9,33 @@
   width: 100vw;
   justify-content: space-between;
   height: var(--header-height);
-  background-color: var(--secondary-color);
-  color: #fff;
+  color: var(--primary_color);
+  background-color: var(--header_bgColor);
+  font-family: Lobster-Regular;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.header__title{
+  margin-left: 10px;
+  font-size: 1.3rem;
+}
+
+.header a {
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.header > *{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  border: none;
+  background-color: transparent;
+  color: var(--font_mainColor);
+}
+
+.header__icon{
+  margin-left: 5px;
+  color: var(--primary_color);
 }

@@ -44,9 +44,10 @@ export const Todo = ({ todo }) => {
         <input className='todo__done' type='checkbox' checked={checked} onChange={handleCheck} />
       </form>
       <p className='todo__description'>{thisTodo.description}</p>
-      <div className='todo__controlls'>
+      <div className={moreOptions ? 'todo__controlls todo__controlls--open' : 'todo__controlls'}>
         <button onClick={handleMoreOptions}><FontAwesomeIcon icon={!moreOptions ? faEllipsisVertical : faClose} /></button>
-        {moreOptions && <MoreOptions todo={thisTodo} setThisTodo={setThisTodo} />}
+        <MoreOptions todo={thisTodo} setThisTodo={setThisTodo} />
+        {/* {moreOptions && <MoreOptions todo={thisTodo} setThisTodo={setThisTodo} />} */}
       </div>
     </article>
   )

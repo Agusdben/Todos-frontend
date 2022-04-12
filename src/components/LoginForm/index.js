@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
 import useUser from '../../hooks/useUser'
+
+import './LoginForm.css'
 
 export const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { login, isLogged, isLoginLoading, hasLoginError } = useUser()
+  const { login, hasLoginError } = useUser()
   const handleUsername = (e) => {
     setUsername(e.target.value)
   }
@@ -20,16 +21,21 @@ export const LoginForm = () => {
   }
 
   return (
-    <>
-      {isLoginLoading && <strong>Checking credentials...</strong>}
-      {!isLoginLoading &&
-        <form onSubmit={handleLogin}>
-          <input type='text' value={username} onChange={handleUsername} />
-          <input type='password' value={password} onChange={handlePassword} />
-          <button>LOGIN</button>
-          {hasLoginError && <strong>Username or password invialid</strong>}
-        </form>}
-      {isLogged && <Navigate to='/' replace />}
-    </>
+    <form className='login-form' onSubmit={handleLogin}>
+      <input
+        className='login-form__input'
+        type='text' value={username}
+        onChange={handleUsername}
+        placeholder='Username'
+      />
+      <input
+        className='login-form__input'
+        type='password' value={password}
+        onChange={handlePassword}
+        placeholder='Password'
+      />
+      {hasLoginError && <strong className='login-form__error'>Username or password invialid</strong>}
+      <button>LOGIN</button>
+    </form>
   )
 }

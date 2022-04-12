@@ -1,24 +1,10 @@
 .more-options {
-  position: absolute;
   display: flex;
-  height: 100%;
-  bottom: 100%;
-  right: var(--controlls-width);
-  animation: moreOptionsArrive ;
-  animation-duration: 500ms;
-  animation-fill-mode: forwards;
 }
 
 .more-options__button {
-  width: 60px;
+  width: var(--controlls-width);
   border: none;
-  background-color:#fff;
-  color: var(--secondary-color);
-}
-
-
-@keyframes moreOptionsArrive {
-  to {
-    bottom: 0;
-  }
+  color: var(--button_fontColor);
+  background-color: var(--primary_color);
 }

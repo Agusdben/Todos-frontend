@@ -5,29 +5,60 @@
 :root {
   --header-height: 70px;
   --addTodo-height: 100px;
-  /* --main-color: #FF7414;
-  --secondary-color: #DE3B12; */
-  --main-color: #F7846A;
-  --secondary-color: #75220F;
-  
+
+  --bgColor: #f1f1f1;
+  --primary_color: #961f05;
+  --header_bgColor: #fff;
+  --todo_bgColor: #fff;
+  --font_mainColor: #000;
+  --button_fontColor: #fff;
+  --moda_bgColor: #fff;
+
+  --bgColor: #333;
+  --header_bgColor: #222;
+  --primary_color: #961f05;
+  --todo_bgColor: #555;
+  --font_mainColor: #fff;
+  --button_fontColor: #fff;
+  --moda_bgColor: #333;
+}
+
+@font-face {
+  font-family: Lobster-Regular;
+  src: url('../public/fonts/Lobster-Regular.ttf');
 }
 
 body {
   font-family: sans-serif;
   overflow-x: hidden;
-  color: #000;
-  background-color: var(--main-color);
-  font-size: calc(18px + 1vmin);
+  color: var(--font_mainColor);
+  background-color: var(--bgColor);
+  font-size: calc(14px + 1vmin);
 }
 
 a {
-  color: #000;
+  color: var(--font_mainColor);
 }
 
 img {
   max-width: 100%;
 }
 
-input:focus{
+input:focus {
   outline: none;
+}
+
+
+button:hover {
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  position: relative;
+  border: none;
+  border-bottom: 1px solid var(--primary_color);
+  background-color: transparent;
+  line-height: 2rem;
+  color: var(--font_mainColor);
 }

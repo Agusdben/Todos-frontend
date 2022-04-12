@@ -1,0 +1,95 @@
+.user-controlls {
+  background-color: var(--header_bgColor);
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-controlls__text {
+  line-height: var(--header-height);
+  margin: 0;
+  margin-right: 10px;
+  height: var(--header-height);
+  font-size: 1.5rem;
+}
+
+.user-controlls__text:hover{
+  cursor: pointer;
+}
+
+.fa-chevron-right {
+  margin-left: 10px;
+}
+
+.user-controlls__list {
+  position: absolute;
+  list-style: none;
+  right: 0;
+  margin: 0;
+  padding: 1em;
+  z-index: -99;
+  border-radius: 0px 0px 10px 10px;
+
+  background-color: var(--header_bgColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+
+  transition: top 300ms linear;
+}
+
+
+.user-controlls__item {
+  width: 100%;
+}
+
+.user-controlls__btn {
+  position: relative;
+  background-color: transparent;
+  z-index: 9;
+  width: 120px;
+  margin: auto;
+  border: 3px solid var(--font_mainColor);
+  border-radius: 35px;
+  height: 50px;
+}
+
+.user-controlls__btn svg {
+  position: absolute;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  background-color: var(--font_mainColor);
+  color: var(--header_bgColor);
+}
+
+.user-controlls__btn--dark svg {
+  animation: translateSvg 200ms linear forwards;
+}
+
+.user-controlls__btn--light svg {
+  animation: translateSvg 200ms linear forwards reverse;
+}
+
+@keyframes translateSvg {
+  to {
+    left: calc(100% - 43px);
+  }
+}
+
+.user-controlls__logout {
+
+  background-color: transparent;
+  color: var(--font_mainColor);
+  border: none;
+  width: 100%;
+  text-align: center;
+}
+
+.user-controlls__logout svg {
+  margin-left: 10px;
+  color: var(--primary_color);
+}

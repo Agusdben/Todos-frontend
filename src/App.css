@@ -1,2 +1,6 @@
-#app{
+#app {}
+
+.grid-center {
+  display: grid;
+  place-content: center;
 }

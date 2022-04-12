@@ -8,19 +8,16 @@ export const Todos = () => {
   return (
     <>
       {todos &&
-        <section
-          className='todos'
-          style={
-            {
-              minHeight: `calc(${window.innerHeight}px - var(--addTodo-height) - var(--header-height))`
-            }
-          }
-        >
+        <section className='todos'>
           {
             todos.map(todo =>
               <Todo key={todo.id} todo={todo} />
             )
           }
+        </section>}
+      {!todos &&
+        <section>
+          <h2>No todos yet</h2>
         </section>}
     </>
   )

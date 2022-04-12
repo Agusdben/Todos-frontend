@@ -6,7 +6,6 @@ import './TodoEdit.css'
 export const TodoEdit = ({ handleCancel, todo, setThisTodo }) => {
   return (
     <section className='edit'>
-
       <article className='edit__container'>
         <TodoForm method='put' handleCancel={handleCancel} todo={todo} setThisTodo={setThisTodo} />
       </article>
