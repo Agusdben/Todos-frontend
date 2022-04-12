@@ -34,7 +34,7 @@ export const UserControlls = () => {
           }
         />
       </p>
-      <ul className='user-controlls__list' style={{ top: toggleMenu ? '100%' : '-100%' }}>
+      <ul className='user-controlls__list' style={{ top: toggleMenu ? '100%' : '-150%' }}>
         <li className='user-controlls__item'>
           <button className={darkMode ? ' user-controlls__btn user-controlls__btn--dark' : 'user-controlls__btn user-controlls__btn--light'} onClick={handleCheckced}>
             {darkMode && <FontAwesomeIcon icon={faSun} />}
