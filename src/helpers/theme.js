@@ -6,16 +6,18 @@ export const themes = {
     todo_bgColor: '#fff',
     font_mainColor: '#000',
     button_fontColor: '#fff',
-    moda_bgColor: '#fff'
+    moda_bgColor: '#fff',
+    todo_boxShadow: '#333'
   },
   dark: {
-    bgColor: '#333',
+    bgColor: '#222',
     header_bgColor: '#222',
     primary_color: '#961f05',
     todo_bgColor: '#555',
     font_mainColor: '#fff',
     button_fontColor: '#fff',
-    moda_bgColor: '#333'
+    moda_bgColor: '#333',
+    todo_boxShadow: '#111'
   }
 }
 

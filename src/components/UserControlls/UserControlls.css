@@ -1,6 +1,6 @@
 .user-controlls {
   background-color: var(--header_bgColor);
-  width: 200px;
+  min-width: 200px;
   display: flex;
   justify-content: flex-end;
 }

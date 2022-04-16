@@ -5,22 +5,6 @@
 :root {
   --header-height: 70px;
   --addTodo-height: 100px;
-
-  --bgColor: #f1f1f1;
-  --primary_color: #961f05;
-  --header_bgColor: #fff;
-  --todo_bgColor: #fff;
-  --font_mainColor: #000;
-  --button_fontColor: #fff;
-  --moda_bgColor: #fff;
-
-  --bgColor: #333;
-  --header_bgColor: #222;
-  --primary_color: #961f05;
-  --todo_bgColor: #555;
-  --font_mainColor: #fff;
-  --button_fontColor: #fff;
-  --moda_bgColor: #333;
 }
 
 @font-face {

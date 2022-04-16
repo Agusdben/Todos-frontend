@@ -9,7 +9,7 @@
   border-radius: 5px;
   display: flex;
   background-color: var( --todo_bgColor);
-  box-shadow: 0px 5px 15px #333;
+  box-shadow: 0px 5px 15px var(--todo_boxShadow);
   position: relative;
   overflow: hidden;
 }

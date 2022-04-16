@@ -7,7 +7,7 @@ export const Home = () => {
   const { isLogged } = useUser()
 
   return (
-    <section style={{ minHeight: `calc(${window.innerHeight}px - var(--header-height) - var(--addTodo-height))` }}>
+    <section>
       {isLogged && <Todos />}
       {!isLogged && <Navigate to='/login' replace />}
     </section>
