@@ -6,9 +6,9 @@
 }
 
 .login-form button{
-  display: inline-block;
-  margin: auto;
+  position: relative;
   font-size: 1.2rem;
+  height: 40px;
   padding: .3em 1em;
   background-color: var(--primary_color);
   color: var(--button_fontColor);

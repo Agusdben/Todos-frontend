@@ -14,7 +14,7 @@ export const MoreOptions = ({ todo, setThisTodo }) => {
   const { todos, setTodos, token, logout } = useUser()
   const [isDeleting, setIsDeleting] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
-
+  const [loading, setLoading] = useState(false)
   const handleIsDeleting = () => {
     setIsDeleting(!isDeleting)
   }
@@ -25,12 +25,17 @@ export const MoreOptions = ({ todo, setThisTodo }) => {
 
   const handleDelete = async () => {
     try {
+      setLoading(true)
       await todosServices.deleteTodo(todo.id, token)
       const newTodos = todos.filter(eachTodo => eachTodo.id !== todo.id)
       setTodos(newTodos)
-      setIsDeleting(!isDeleting)
       window.localStorage.setItem('storedTodos', JSON.stringify(newTodos))
-    } catch (e) { logout() }
+    } catch (e) {
+      logout()
+    } finally {
+      setLoading(false)
+      setIsDeleting(!isDeleting)
+    }
   }
 
   return (
@@ -41,6 +46,7 @@ export const MoreOptions = ({ todo, setThisTodo }) => {
         <Modal modalClose={setIsDeleting} icon={faTrash}>
           <TodoDelete
             todo={todo}
+            loading={loading}
             handleConfirm={handleDelete}
             handleCancel={handleIsDeleting}
           />

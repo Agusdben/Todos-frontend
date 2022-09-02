@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Loading } from '../Loading'
 import useUser from '../../hooks/useUser'
 
 import './LoginForm.css'
@@ -6,7 +7,7 @@ import './LoginForm.css'
 export const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { login, hasLoginError } = useUser()
+  const { login, hasLoginError, isLoginLoading } = useUser()
   const handleUsername = (e) => {
     setUsername(e.target.value)
   }
@@ -35,7 +36,10 @@ export const LoginForm = () => {
         placeholder='Password'
       />
       {hasLoginError && <strong className='login-form__error'>Username or password invialid</strong>}
-      <button>LOGIN</button>
+      <button>
+        {isLoginLoading && <Loading />}
+        {!isLoginLoading && <span>LOGIN</span>}
+      </button>
     </form>
   )
 }
