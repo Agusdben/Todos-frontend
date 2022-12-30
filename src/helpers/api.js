@@ -1,1 +1,1 @@
-export const API_URL = 'https://app-todos-task.herokuapp.com/api'
+export const API_URL = 'https://quiz-app-bd.onrender.com/api'
